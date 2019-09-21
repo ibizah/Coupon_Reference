@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% extends 'form.html' %}
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    
+    <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    </style>
+</style>
+
+    <meta charset="utf-8">
+    <title>User Details</title>
+  </head>
+  {% block body_block %}
+  <body>
+    <div class="container">
+      <h1> User Details</h1>
+  {% if user_records %}
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>City</th>
+          <th>Referel Code</th>
+
+        </thead>
+
+        {% for rec in user_records %}
+          <tr>
+            <td>{{ rec.name }}</td>
+            <td>{{ rec.email }}</td>
+            <td>{{ rec.age }}</td>
+
+            <td>{{ rec.city}}</td>
+            <td>{{ rec.referal_code }}</td>
+          </tr>
+        {% endfor %}
+    </table>
+
+  {% else %}
+    <p>No recess Records. Table Not Created.</p>
+  {% endif %}
+  </div>
+</body>
+    {% endblock %}
+</html>
