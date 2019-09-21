@@ -3,7 +3,7 @@
 {% load staticfiles %}
 <html lang="en" dir="ltr">
   <head>
-    
+
     <style>
     table, th, td {
       border: 1px solid black;
@@ -19,24 +19,28 @@
     <div class="container">
       <h1> User Details</h1>
   {% if user_records %}
-      <table>
-        <thead>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Age</th>
-          <th>City</th>
-          <th>Referel Code</th>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Age</th>
+        <th scope="col">City</th>
+        <th scope="col">Referal Code</th>
 
-        </thead>
-
+      </tr>
+    </thead>
         {% for rec in user_records %}
+        <tbody>
           <tr>
-            <td>{{ rec.name }}</td>
-            <td>{{ rec.email }}</td>
-            <td>{{ rec.age }}</td>
+            <th scope="row">1</th>
+            <td>{{rec.name}}</td>
+            <td>{{rec.email}}</td>
+            <td>{{rec.age}}</td>
+            <td>{{rec.city}}</td>
+            <td>{{rec.referal_code}}</td>
 
-            <td>{{ rec.city}}</td>
-            <td>{{ rec.referal_code }}</td>
           </tr>
         {% endfor %}
     </table>
