@@ -9,6 +9,7 @@ import datetime
 def details(request):
     user_data= User.objects.all()
     dic={'user_records':user_data}
+    
     return render(request, 'details.html',dic)
 
 def form(request):
