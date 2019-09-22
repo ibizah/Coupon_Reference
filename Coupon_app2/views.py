@@ -4,6 +4,7 @@ from . forms import UserForm
 from .models import User
 # Create your views here.
 import datetime
+from django.core.mail import send_mail
 
 
 def details(request):
@@ -16,13 +17,13 @@ def form(request):
     x = datetime.datetime.now()
     dic={'date':x.year}
     form1 =UserForm()
-    if request.method == 'POST':
+    form1 = UserForm(request.POST)
+    if request.method == 'POST' and  form1.is_valid():
 
-        form1 = UserForm(request.POST)
-        if form1.is_valid :
-            # fn=form1.cleaned_data['name']
-            # mail=form1.cleaned_data['email']
-            # age=form1.cleaned_data['age']
-            #'fn':fn,'mail':mail,'age':age
+            fn=form1.cleaned_data['name']
+            mail=form1.cleaned_data['email']
+            age=form1.cleaned_data['age']
+            dic={'fn':fn,'mail':mail,'age':age}
+            print(dic['fn'], dic['mail'])
             form1.save(commit=True)
     return render(request, 'form.html',{'form1':form1,},dic)
