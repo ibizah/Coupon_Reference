@@ -31,10 +31,6 @@
             <a class="nav-link" href="{% url 'admin:index' %}">Admin <span class="sr-only">(current)</span></a>
           </li>
 
-
-          <li class="nav-item active">
-            <a class="nav-link " href="" >bio</a>
-          </li>
         </ul>
     </nav>
       </div>
@@ -45,7 +41,7 @@
             {{ form1.as_p}}
             {% csrf_token %}
             <input type="submit" class="btn btn-primary" value="submit">
-            <a href="{% url 'Coupon_app2:details'%}"><input type="button" name="" value="UserDetails"></a>
+            <a href="{% url 'Coupon_app2:details'%}"><input type="button" name="" value="ViewEnteredDetails"></a>
 
 
           </form>
