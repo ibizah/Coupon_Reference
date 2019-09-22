@@ -15,7 +15,7 @@ class UserForm(forms.ModelForm):
     email= forms.EmailField()
     age= forms.IntegerField()
     city= forms.CharField()
-    referal_code = forms.CharField(required=False, validators=[alphanumeric, validators.MaxLengthValidator(7)],widget=forms.TextInput(attrs={  'autocomplete': 'off','pattern':'[A-Za-z0-9]+', 'title':'Enter Alphanumeric Characters Only ','size':10}))
+    referal_code = forms.CharField(required=False, validators=[validators.RegexValidator(r'^[0-9a-zA-Z]*$', 'Only alphanumeric characters are allowed.'),validators.MinLengthValidator(7), validators.MaxLengthValidator(7)],widget=forms.TextInput(attrs={  'autocomplete': 'off','pattern':'[A-Za-z0-9]+', 'title':'Enter Alphanumeric Characters Only ','size':10}))
 
     class Meta:
         model= User

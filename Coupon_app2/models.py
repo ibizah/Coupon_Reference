@@ -24,8 +24,8 @@ class User(models.Model):
 
 
     def save(self, *args, **kwargs):
-        #if not self.pk:
-            #self.referal_code = self.generate_verification_code()
+        if not self.pk:
+            self.referal_code = self.generate_verification_code()
         if not self.referal_code:
             self.referal_code = self.generate_verification_code()
         return super(User, self).save(*args, **kwargs)
