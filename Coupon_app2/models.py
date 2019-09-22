@@ -12,7 +12,7 @@ class User(models.Model):
     email= models.EmailField(max_length=100)
     age= models.IntegerField()
     city= models.CharField(max_length=100)
-    referal_code = models.CharField(max_length=7, blank=True, null=True, unique=True,)
+    referal_code = models.CharField(max_length=7, blank=True,  unique=True,)
 
 
     def generate_verification_code(self):
