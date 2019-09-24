@@ -78,12 +78,8 @@ WSGI_APPLICATION = 'Coupon_ref2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'doodledb',
-        'USER':'postgres',
-        'HOST':'localhost',
-        'PASSWORD':'181881ib',
-        'PORT':'5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

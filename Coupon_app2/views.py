@@ -20,10 +20,10 @@ def form(request):
     form1 = UserForm(request.POST)
     if request.method == 'POST' and  form1.is_valid():
 
-            fn=form1.cleaned_data['name']
-            mail=form1.cleaned_data['email']
-            age=form1.cleaned_data['age']
-            dic={'fn':fn,'mail':mail,'age':age}
-            print(dic['fn'], dic['mail'])
+            # fn=form1.cleaned_data['name']
+            # mail=form1.cleaned_data['email']
+            # age=form1.cleaned_data['age']
+            #dic={'fn':fn,'mail':mail,'age':age}
+            #print(f'your name is {dic["fn"]},email is  {dic["mail"]}')
             form1.save(commit=True)
-    return render(request, 'form.html',{'form1':form1,},dic)
+    return render(request, 'form.html',{'form1':form1,})
